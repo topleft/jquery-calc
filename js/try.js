@@ -3,7 +3,7 @@ var operators = {
   "+" : function(a,b){return a+b},
   "-" : function(a,b){return a-b},
   "x" : function(a,b){return a*b},
-  "÷" : function(a,b){return a/b}
+  "\u00F7" : function(a,b){return a/b}
 }
 
 function calculate(arr) {
