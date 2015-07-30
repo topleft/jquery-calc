@@ -21,39 +21,38 @@ $(document).ready(function() {
   var num = "";
   var math = [];
   var total = 0;
+  var screen = $("#screen");
 
 
   $("#button-container span").on("click", function (){
     var item = $(this).html();
 
+    // C
     if ($(this)[0].id === "cancel"){
       num = "";
       math = [];
       total = 0;
-      return 0;
+      screen.html(0);
     }
-
+    // number
     else if (Number.isInteger(parseInt(item))) {
       num += item;
-                          console.log("Num: "+num);
+      screen.html(num);
     }
-
+    // =
     else if ($(this)[0].id === "calc") {
       math.push(num);
-      console.log("Math array: "+math);
       num = (calculate(math)[0]).toString();
-      console.log("Want String: "+typeof num)
-      console.log(num);
+      screen.html(num);
     }
 
     // = - * /
     else {
-      console.log(item)
       if (num) math.push(num);
       math = calculate(math);
       math.push(item);
-                          console.log(math[0]);
       num = "";
+      screen.html(math[0]);
     }
   });
 });
